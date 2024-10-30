@@ -8,9 +8,10 @@ app.use(express.json());
 app.use(cors());
 
 //importar la ruta
+app.use('/api/auth', require('./routers/authRoutes'));
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(`Servidor escuchando en http://localhost ${PORT}`);
+    console.log(`Servidor escuchando en http://localhost${PORT}`);
 });
