@@ -1,24 +1,23 @@
-const product = require('../models/products');
+const Product = require('../models/Products');
 
-//obtener todos los productos
-
-exports.getProducts = async (req, res) => {
+// Obtener todos los productos
+exports.getAllProducts = async (req, res) => {
     try {
-        const products = await product.find();
+        const products = await Product.find();
         res.json(products);
     } catch (error) {
-        console.error('error al obtener los productos: ', error);
-        res.status(500).send('Error al obtener los productos');
+        console.error('Error al obtener los productos:', error);
+        res.status(500).json({ error: 'Error al obtener los productos' });
     }
 };
 
-//crear un nuevo producto (admin)
-
+// Crear un nuevo producto(admin)
 exports.createProduct = async (req, res) => {
     try {
-        const products = await product.find();
-        res.json(products);
+        const product = new Product(req.body);
+        await product.save();
+        res.status(201).json(product);
     } catch (error) {
-        res.status(500).send('Error al crear el producto');
+        res.status(500).json({ error: 'Error al crear el producto' });
     }
 }
