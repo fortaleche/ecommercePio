@@ -5,6 +5,9 @@ import Home from './pages/Home';
 
 //Components
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -12,7 +15,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route Path="/Register" element={<Register />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
