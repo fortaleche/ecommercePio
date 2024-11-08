@@ -6,8 +6,14 @@ import Home from './pages/Home';
 //Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Login from './pages/Login'
-import Registe from './pages/Registe'
+import Login from './pages/Login';
+import Registe from './pages/Registe';
+import Admin from './pages/admin';
+
+//STtyle
+import './App.css';
+import './index.css';
+
 
 
 function App() {
@@ -18,6 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registe />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
     </Router>
